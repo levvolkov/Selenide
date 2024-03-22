@@ -2,12 +2,12 @@ package ru.netology.Selenide;
 
 import org.junit.jupiter.api.Test;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.visible;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -19,7 +19,7 @@ public class CardDeliveryNegativeTest {
 
 
     @Test
-    void ShouldIncorrectCity() {
+    void shouldIncorrectCity() {
         String date = setLocalDate(3);
         open("http://localhost:9999");
         $("[data-test-id=city] input").setValue("Наро-Фоминск");
@@ -32,7 +32,7 @@ public class CardDeliveryNegativeTest {
     }
 
     @Test
-    void ShoulNotFilledCity() {
+    void shoulNotFilledCity() {
         String date = setLocalDate(3);
         open("http://localhost:9999");
         $("[data-test-id=date] input").doubleClick().sendKeys(date);
@@ -44,7 +44,7 @@ public class CardDeliveryNegativeTest {
     }
 
     @Test
-    void ShouldUnavailableData() {
+    void shouldUnavailableData() {
         String date = setLocalDate(2);
         open("http://localhost:9999");
         $("[data-test-id=city] input").setValue("Москва");
@@ -57,7 +57,7 @@ public class CardDeliveryNegativeTest {
     }
 
     @Test
-    void ShouldIncorrectName() {
+    void shouldIncorrectName() {
         String date = setLocalDate(3);
         open("http://localhost:9999");
         $("[data-test-id=city] input").setValue("Москва");
@@ -70,7 +70,7 @@ public class CardDeliveryNegativeTest {
     }
 
     @Test
-    void ShouldIncorrectNumberMin() {
+    void shouldIncorrectNumberMin() {
         String date = setLocalDate(3);
         open("http://localhost:9999");
         $("[data-test-id=city] input").setValue("Москва");
@@ -83,7 +83,7 @@ public class CardDeliveryNegativeTest {
     }
 
     @Test
-    void ShouldIncorrectNumberMax() {
+    void shouldIncorrectNumberMax() {
         String date = setLocalDate(3);
         open("http://localhost:9999");
         $("[data-test-id=city] input").setValue("Москва");
@@ -105,7 +105,6 @@ public class CardDeliveryNegativeTest {
         $("[data-test-id=phone] input").setValue("+79774620011");
         $(byText("Я соглашаюсь с условиями обработки и использования моих персональных данных")).shouldBe(visible);
     }
-
 }
 
 

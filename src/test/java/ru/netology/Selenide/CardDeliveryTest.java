@@ -19,7 +19,7 @@ public class CardDeliveryTest {
 
 
     @Test
-    void ShouldApplication() {
+    void shouldApplication() {
         String date = setLocalDate(3);
         open("http://localhost:9999");
         $("[data-test-id=city] input").setValue("Москва");
@@ -36,7 +36,7 @@ public class CardDeliveryTest {
     }
 
     @Test
-    void ShouldHuphenCity() {
+    void shouldHuphenCity() {
         String date = setLocalDate(3);
         open("http://localhost:9999");
         $("[data-test-id=city] input").setValue("Санкт-Петербург");
@@ -51,7 +51,7 @@ public class CardDeliveryTest {
     }
 
     @Test
-    void ShouldMoreThreeDays() {
+    void shouldMoreThreeDays() {
         String date = setLocalDate(4);
         open("http://localhost:9999");
         $("[data-test-id=city] input").setValue("Москва");
